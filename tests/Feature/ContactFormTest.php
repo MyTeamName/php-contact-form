@@ -16,7 +16,7 @@ class ContactFormTest extends TestCase
             'full_name' => 'Jeff Puckett',
             'email' => 'jeff@jeffpuckett.com',
             'message' => 'I love writing code to make the world a bit better.',
-            'phone' => '(678) 321-7825', // 678 321 Puck
+            'phone' => '678 321 Puck', // (678) 321-7825
         ];
 
         $this->post('/contact', $data)->assertStatus(201);
