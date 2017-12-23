@@ -19,7 +19,7 @@ class ContactFormTest extends TestCase
             'phone' => '(678) 321-7825', // 678 321 Puck
         ];
 
-        $this->post('/contact', $data)->assertSuccessful();
+        $this->post('/contact', $data)->assertStatus(201);
 
         $this->assertDatabaseHas('contacts', $data);
     }
