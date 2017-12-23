@@ -8,6 +8,8 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ContactFormTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function test_saves_contact_form_to_database()
     {
         $data = [
