@@ -23,4 +23,18 @@ class ContactFormTest extends TestCase
 
         $this->assertDatabaseHas('contacts', $data);
     }
+
+    public function test_vendor_phone_validator()
+    {
+        $data = [
+            'full_name' => 'Jeff Puckett',
+            'email' => 'jeff@jeffpuckett.com',
+            'message' => 'I love writing code to make the world a bit better.',
+            'phone' => 'this is not a phone number',
+        ];
+
+        $this->post('/contact', $data)->assertSessionHasErrors(['phone']);
+
+        $this->assertDatabaseMissing('contacts', $data);
+    }
 }
