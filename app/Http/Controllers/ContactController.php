@@ -36,7 +36,9 @@ class ContactController extends Controller
      */
     public function store(ContactForm $request)
     {
-        //
+        Contact::create($request->validated());
+
+        return response('Contact information saved successfully!', 201);
     }
 
     /**
