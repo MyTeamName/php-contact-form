@@ -30,7 +30,7 @@ class ContactFormTest extends TestCase
             'full_name' => 'Jeff Puckett',
             'email' => 'jeff@jeffpuckett.com',
             'message' => 'I love writing code to make the world a bit better.',
-            'phone' => 'this is not a phone number',
+            'phone' => 'faux number',
         ];
 
         $this->post('/contact', $data)->assertSessionHasErrors(['phone']);
