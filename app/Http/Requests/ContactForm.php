@@ -24,7 +24,10 @@ class ContactForm extends FormRequest
     public function rules()
     {
         return [
-            //
+            'full_name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'message' => 'required|string',
+            'phone' => 'nullable|string', // TODO: validate type
         ];
     }
 }
