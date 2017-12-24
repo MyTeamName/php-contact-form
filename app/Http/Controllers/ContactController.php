@@ -38,7 +38,7 @@ class ContactController extends Controller
     {
         Contact::create($request->validated());
 
-        return response('Contact information saved successfully!', 201);
+        return response()->view('success', [], 201);
     }
 
     /**
