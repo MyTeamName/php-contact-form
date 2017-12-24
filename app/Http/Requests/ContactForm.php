@@ -30,4 +30,16 @@ class ContactForm extends FormRequest
             'phone' => 'nullable|phone:AUTO,US',
         ];
     }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'phone.phone' => "That's not a valid phone number.",
+        ];
+    }
 }
