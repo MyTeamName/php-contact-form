@@ -58,6 +58,11 @@
                             maxlength="255"
                             required
                             class="form-control">
+                        @if ($errors->has('full_name'))
+                            @foreach ($errors->get('full_name') as $msg)
+                                <span class="label label-danger">{{ $msg }}</span>
+                            @endforeach
+                        @endif
                     </div>
                     <div class="form-group">
                         <label for="email">Email Address:</label>
@@ -67,6 +72,11 @@
                             maxlength="255"
                             required
                             class="form-control">
+                        @if ($errors->has('email'))
+                            @foreach ($errors->get('email') as $msg)
+                                <span class="label label-danger">{{ $msg }}</span>
+                            @endforeach
+                        @endif
                     </div>
                     <div class="form-group">
                         <label for="message">Message:</label>
@@ -76,6 +86,11 @@
                             maxlength="255"
                             required
                             class="form-control"></textarea>
+                        @if ($errors->has('message'))
+                            @foreach ($errors->get('message') as $msg)
+                                <span class="label label-danger">{{ $msg }}</span>
+                            @endforeach
+                        @endif
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone:</label>
@@ -84,6 +99,11 @@
                             type="tel"
                             maxlength="255"
                             class="form-control">
+                        @if ($errors->has('phone'))
+                            @foreach ($errors->get('phone') as $msg)
+                                <span class="label label-danger">{{ $msg }}</span>
+                            @endforeach
+                        @endif
                     </div>
                     <button type="submit" class="btn btn-default">Submit</button>
                </form>
