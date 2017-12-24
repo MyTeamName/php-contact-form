@@ -6,6 +6,8 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Contact;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NewContact;
 
 class ContactFormTest extends TestCase
 {
@@ -34,9 +36,19 @@ class ContactFormTest extends TestCase
      */
     public function test_saves_contact_form_to_database(array $data)
     {
+        Mail::fake();
+
         $this->post('/contacts', $data)->assertStatus(201);
 
         $this->assertDatabaseHas('contacts', $data);
+
+        Mail::assertSent(NewContact::class, function ($mail) use ($data) {
+            return $mail->hasTo('guy-smiley@example.com') &&
+                $mail->contact->full_name === $data['full_name'] &&
+                $mail->contact->message === $data['message'] &&
+                $mail->contact->email === $data['email'] &&
+                $mail->contact->phone === $data['phone'];
+        });
     }
 
     public function test_vendor_phone_validator()
