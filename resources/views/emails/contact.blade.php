@@ -11,7 +11,7 @@
 
 @isset($contact->phone)
 ## Phone
-{{ $contact->phone }}
+<a href="tel:{{ $contact->phone }}">{{ $contact->phone }}</a>
 @endisset
 
 @endcomponent
