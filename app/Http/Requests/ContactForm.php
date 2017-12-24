@@ -6,6 +6,8 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class ContactForm extends FormRequest
 {
+    protected $redirect = "/#contact";
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -28,6 +30,18 @@ class ContactForm extends FormRequest
             'email' => 'required|unique:contacts|email|max:255',
             'message' => 'required|string',
             'phone' => 'nullable|phone:AUTO,US',
+        ];
+    }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'phone.phone' => "That's not a valid phone number.",
         ];
     }
 }
