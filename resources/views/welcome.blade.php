@@ -54,6 +54,7 @@
                         <label for="full_name">Full Name:</label>
                         <input id="full_name"
                             name="full_name"
+                            value="{{ old('full_name') }}"
                             type="text"
                             maxlength="255"
                             required
@@ -68,6 +69,7 @@
                         <label for="email">Email Address:</label>
                         <input id="email"
                             name="email"
+                            value="{{ old('email') }}"
                             type="email"
                             maxlength="255"
                             required
@@ -85,7 +87,7 @@
                             rows="10"
                             maxlength="255"
                             required
-                            class="form-control"></textarea>
+                            class="form-control">{{ old('message') }}</textarea>
                         @if ($errors->has('message'))
                             @foreach ($errors->get('message') as $msg)
                                 <span class="label label-danger">{{ $msg }}</span>
@@ -96,6 +98,7 @@
                         <label for="phone">Phone:</label>
                         <input id="phone"
                             name="phone"
+                            value="{{ old('phone') }}"
                             type="tel"
                             maxlength="255"
                             class="form-control">
