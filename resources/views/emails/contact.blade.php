@@ -1,12 +1,17 @@
 @component('mail::message')
-# Introduction
+# New Contact
 
-The body of your message.
+{{ $contact->full_name }} has made contact.
 
-@component('mail::button', ['url' => ''])
-Button Text
-@endcomponent
+## Message
+{{ $contact->message }}
 
-Thanks,<br>
-{{ config('app.name') }}
+## Email
+<a href="mailto:{{ $contact->email }}">{{ $contact->email }}</a>
+
+@isset($contact->phone)
+## Phone
+{{ $contact->phone }}
+@endisset
+
 @endcomponent
