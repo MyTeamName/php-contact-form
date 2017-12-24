@@ -50,7 +50,7 @@
                 <p>Remember Guy Smiley?  Yeah, he wants to hear from you.</p>
                 <form action="{{ route('contacts.store') }}" method="POST">
                     {{ csrf_field() }}
-                    <div class="form-group">
+                    <div class="form-group {{ $errors->has('full_name') ? 'has-error' : '' }}">
                         <label for="full_name">Full Name:</label>
                         <input id="full_name"
                             name="full_name"
@@ -65,7 +65,7 @@
                             @endforeach
                         @endif
                     </div>
-                    <div class="form-group">
+                    <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
                         <label for="email">Email Address:</label>
                         <input id="email"
                             name="email"
@@ -80,7 +80,7 @@
                             @endforeach
                         @endif
                     </div>
-                    <div class="form-group">
+                    <div class="form-group {{ $errors->has('message') ? 'has-error' : '' }}">
                         <label for="message">Message:</label>
                         <textarea id="message"
                             name="message"
@@ -94,7 +94,7 @@
                             @endforeach
                         @endif
                     </div>
-                    <div class="form-group">
+                    <div class="form-group {{ $errors->has('phone') ? 'has-error' : '' }}">
                         <label for="phone">Phone:</label>
                         <input id="phone"
                             name="phone"
