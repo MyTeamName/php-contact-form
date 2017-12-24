@@ -115,9 +115,45 @@
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>Contact Guy Smiley</h2>
                 <p>Remember Guy Smiley?  Yeah, he wants to hear from you.</p>
-                <p class="bg-primary">
-                    [[ This is where you'd put your contact form.  Get it done! ]]
-                </p>
+                <form action="{{ route('contacts.store') }}" method="POST">
+                    {{ csrf_field() }}
+                    <div class="form-group">
+                        <label for="full_name">Full Name:</label>
+                        <input id="full_name"
+                            name="full_name"
+                            type="text"
+                            maxlength="255"
+                            required
+                            class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address:</label>
+                        <input id="email"
+                            name="email"
+                            type="email"
+                            maxlength="255"
+                            required
+                            class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea id="message"
+                            name="message"
+                            rows="10"
+                            maxlength="255"
+                            required
+                            class="form-control"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone:</label>
+                        <input id="phone"
+                            name="phone"
+                            type="tel"
+                            maxlength="255"
+                            class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+               </form>
             </div>
         </div>
     </section>
