@@ -13,4 +13,4 @@
 
 Route::view('/', 'welcome');
 
-Route::post('/contact', 'ContactController@store');
+Route::name('contacts.store')->post('/contact', 'ContactController@store');
