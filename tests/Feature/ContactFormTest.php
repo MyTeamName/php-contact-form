@@ -34,7 +34,7 @@ class ContactFormTest extends TestCase
      */
     public function test_saves_contact_form_to_database(array $data)
     {
-        $this->post('/contact', $data)->assertStatus(201);
+        $this->post('/contacts', $data)->assertStatus(201);
 
         $this->assertDatabaseHas('contacts', $data);
     }
@@ -48,7 +48,7 @@ class ContactFormTest extends TestCase
             'phone' => 'faux number',
         ];
 
-        $this->post('/contact', $data)->assertSessionHasErrors(['phone']);
+        $this->post('/contacts', $data)->assertSessionHasErrors(['phone']);
 
         $this->assertDatabaseMissing('contacts', $data);
     }
